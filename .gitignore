@@ -3,3 +3,7 @@ Assembly-CSharp.csproj
 *.csproj
 Library
 Drawing
+Temp
+obj
+*.sln
+.vscode

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingTool", "Assembly-CSharp.csproj", "{F2B5827B-BAE3-577F-EB17-0E0E756CCC32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingTool", "Assembly-CSharp-firstpass.csproj", "{D09C6423-B574-5DB7-17C5-5148A82F4879}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{F2B5827B-BAE3-577F-EB17-0E0E756CCC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2B5827B-BAE3-577F-EB17-0E0E756CCC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2B5827B-BAE3-577F-EB17-0E0E756CCC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D09C6423-B574-5DB7-17C5-5148A82F4879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D09C6423-B574-5DB7-17C5-5148A82F4879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D09C6423-B574-5DB7-17C5-5148A82F4879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D09C6423-B574-5DB7-17C5-5148A82F4879}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
