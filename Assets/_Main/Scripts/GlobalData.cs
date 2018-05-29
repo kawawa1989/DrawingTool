@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalData : MonoBehaviour {
+public class GlobalData {
+	static GlobalData _instance;
+	public static GlobalData instance {
+		get {
+			if (_instance == null) {
+				_instance = new GlobalData ();
+			}
+			return _instance;
+		}
+	}
+
 	const string KEY_DIR = "KEY_DIR";
-	
-	public float time;
-	public string directory;
-	
-	
+
+	public float drawingTimeSec;
+	string _directory;
+	public string directory {
+		get {
+			return _directory;
+		}
+		set {
+			_directory = value;
+			PlayerPrefs.SetString (KEY_DIR, _directory);
+		}
+	}
+	public bool randomActive = true;
+
 	// Use this for initialization
-	void Awake () {
-		DontDestroyOnLoad(gameObject);
-		directory = PlayerPrefs.GetString(KEY_DIR, "");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
-	public void SetDir(string dir){
-		directory = dir;
-		PlayerPrefs.SetString(KEY_DIR, dir);
+	GlobalData () {
+		directory = PlayerPrefs.GetString (KEY_DIR, "");
 	}
 }

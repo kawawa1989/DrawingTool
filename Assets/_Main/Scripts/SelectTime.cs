@@ -8,8 +8,12 @@ public class SelectTime : MonoBehaviour {
 	public UnityEngine.UI.Button[] buttons;
 	[SerializeField]
 	UnityEngine.UI.Text dirText;
+	[SerializeField]
+	UnityEngine.UI.Toggle randomFlag;
+	GlobalData g;
 
 	void Start () {
+		g = GlobalData.instance;
 		float[] times = new float[] {
 			30,
 			60,
@@ -25,26 +29,20 @@ public class SelectTime : MonoBehaviour {
 		foreach (var button in buttons) {
 			int i = index;
 			button.onClick.AddListener (() => {
-				var data = FindObjectOfType<GlobalData> ();
-				data.time = times[i];
+				g.drawingTimeSec = times[i];
+				g.randomActive = randomFlag.isOn;
 				UnityEngine.SceneManagement.SceneManager.LoadScene ("Drawing");
 			});
 			index++;
 		}
-
-		{
-			var data = FindObjectOfType<GlobalData> ();
-			dirText.text = data.directory;
-		}
+		dirText.text = g.directory;
 	}
 
 	public void OpenFolder () {
 		SimpleFileBrowser.FileBrowser.ShowLoadDialog ((path) => {
-		    Debug.Log(path);
-		    var data = FindObjectOfType<GlobalData>();
-			data.SetDir(path);
-			dirText.text = path;			
-		}, () => {
-		}, true);
+			Debug.Log (path);
+			g.directory = path;
+			dirText.text = path;
+		}, () => { }, true, g.directory);
 	}
 }
