@@ -49,8 +49,12 @@ public class Drawing : MonoBehaviour {
 
 		var current = startDT.AddSeconds (time);
 		var progressDT = current - startDT;
+
+		var rect = timerImage.rectTransform;
+		var scale = rect.localScale;
 		time += Time.deltaTime * timeScale;
-		timerImage.fillAmount = time / g.drawingTimeSec;
+		scale.x = time / g.drawingTimeSec;
+		rect.localScale = scale;
 		timerText.text = string.Format ("{0:00}:{1:00}", progressDT.Minutes, progressDT.Seconds);
 	}
 
